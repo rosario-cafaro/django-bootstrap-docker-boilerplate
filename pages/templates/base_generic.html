@@ -1,0 +1,45 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Base{% endblock %}</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon_io/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon_io/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon_io/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon_io/site.webmanifest' %}">
+
+    <link href="{% static 'css/global.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'pages/css/bootstrap-5.2.3-dist/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'pages/css/styles.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body class="text-center">
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+            <div class="inner">
+                <h3 class="masthead-brand">Cover</h3>
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link {% if active_link == 'home' %}active{% endif %}" href="{% url 'index' %}">Home</a>
+                    <a class="nav-link {% if active_link == 'about' %}active{% endif %}" href="{% url 'about' %}">About</a>
+                    <a class="nav-link disabled" role="button" aria-disabled="true" href="#">Contact</a>
+                </nav>
+            </div>
+        </header>
+
+        {% block content %}
+        {% endblock %}
+
+        <footer class="mastfoot mt-auto">
+            <div class="inner">
+                <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{% static 'pages/js/bootstrap-5.2.3-dist/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
